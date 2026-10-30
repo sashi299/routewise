@@ -1,0 +1,26 @@
+# Prices are USD per 1M tokens; verify against the Nebius account catalog before production runs.
+endpoint:
+  base_url: https://api.tokenfactory.nebius.com/v1
+  env_api_key: NEBIUS_API_KEY
+  timeout_seconds: 45
+  max_retries: 3
+models:
+  tier1:
+    id: nebius/meta-llama/meta-llama-3.1-8b-instruct
+    input_usd_per_million: 0.02
+    output_usd_per_million: 0.06
+  tier2:
+    id: nebius/qwen/qwen3-32b
+    input_usd_per_million: 0.10
+    output_usd_per_million: 0.30
+  tier3:
+    id: nebius/nvidia/llama-3_1-nemotron-ultra-253b-v1
+    input_usd_per_million: 0.60
+    output_usd_per_million: 2.00
+  judge:
+    id: nebius/meta-llama/meta-llama-3.1-8b-instruct
+    input_usd_per_million: 0.02
+    output_usd_per_million: 0.06
+routing:
+  escalation_threshold: 0.50
+  max_tiers: 3
